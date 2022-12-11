@@ -1,22 +1,23 @@
 package org.example.server.config;
 
 public class Configuration {
-    private int port;
-    private String webroot;
+    static private int port;
+    static private String outLog;
 
-    public int getPort() {
+    public static String getOutLog() {
+        return outLog;
+    }
+
+    public static void setOutLog(String outLog) {
+        Configuration.outLog = outLog;
+    }
+
+    public static int getPort() {
         return port;
     }
 
-    public void setPort(int port) {
-        this.port = port;
+    public static void setPort(int port) {
+        Configuration.port = port;
     }
 
-    public String getWebroot() {
-        return webroot;
-    }
-
-    public void setWebroot(String webroot) {
-        this.webroot = webroot;
-    }
 }

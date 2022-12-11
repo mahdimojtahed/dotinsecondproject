@@ -1,9 +1,8 @@
-package org.example.server.config;
+package org.example.exeptionHandling;
 
 public class HttpConfigurationException extends RuntimeException {
     public HttpConfigurationException() {
     }
-
     public HttpConfigurationException(String message) {
         super(message);
     }
