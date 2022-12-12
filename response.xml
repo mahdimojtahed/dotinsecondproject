@@ -1,0 +1,9 @@
+<terminal>
+    <transactionResult transactionId = "123">
+        <message>Transaction successfully completed</message>
+        <deposit>465545</deposit>
+        <transactionType>withdraw</transactionType>
+        <code>1</code>
+        <bool>true</bool>
+    </transactionResult>
+</terminal>

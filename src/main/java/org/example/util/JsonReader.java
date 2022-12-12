@@ -16,11 +16,15 @@ class JsonContent {
 }
 
 public class JsonReader {
-    Gson gson = new Gson();
+    static Gson gson = new Gson();
+    static ArrayList<Deposit> deposits = new ArrayList<>();
 
-    public ArrayList<Deposit> readJSON(String jsonPath) throws GenericExceptions {
+    public static ArrayList<Deposit> getDeposits() {
+        return deposits;
+    }
+
+    static public ArrayList<Deposit> readJSON(String jsonPath) throws GenericExceptions {
         JsonContent jsonContent;
-        ArrayList<Deposit> deposits = new ArrayList<>();
 
         try {
             jsonContent = gson.fromJson(new FileReader(jsonPath), JsonContent.class);

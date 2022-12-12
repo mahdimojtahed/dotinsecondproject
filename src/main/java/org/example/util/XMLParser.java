@@ -18,8 +18,7 @@ public class XMLParser {
     public XMLParser(ArrayList<Transaction> transactions) {
         XMLParser.transactions = transactions;
     }
-
-    public ArrayList<Transaction> getTransactions() {
+    public static ArrayList<Transaction> getTransactions() {
         return transactions;
     }
     public static ArrayList<Transaction> initTransactions(Document doc) {
