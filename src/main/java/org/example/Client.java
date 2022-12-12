@@ -1,9 +1,5 @@
 package org.example;
 
-import org.jdom2.Document;
-
-import javax.print.Doc;
-import javax.xml.bind.Element;
 import java.io.*;
 import java.net.Socket;
 

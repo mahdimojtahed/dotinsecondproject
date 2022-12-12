@@ -36,7 +36,6 @@ public class ServerThread extends Thread {
             transactions = XMLParser.getTransactions();
             deposits = JsonReader.getDeposits();
 
-            // todo : add logic
 
             for (Transaction transaction : transactions) {
                 System.out.println(transaction);
@@ -44,11 +43,6 @@ public class ServerThread extends Thread {
             for (Deposit deposit : deposits) {
                 System.out.println(deposit);
             }
-
-
-            // todo: log events in log file
-            // todo: ask for terminating server threads
-            // todo: ask for transaction for each client-server connection
 
 
             writer.println("Hello");
