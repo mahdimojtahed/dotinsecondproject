@@ -3,7 +3,6 @@ package org.example.server.config;
 public class Configuration {
     static private int port;
     static private String outLog;
-
     public static String getOutLog() {
         return outLog;
     }

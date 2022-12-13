@@ -25,6 +25,7 @@ public class Server {
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         try (ServerSocket serverSocket = new ServerSocket(serverPort)) {
             System.out.println(Strings.SERVER_LISTEN + serverPort);
+            // todo : log events in server.log
             while (true) {
                 Socket socket = serverSocket.accept();
                 executorService.execute(new ServerThread(socket));

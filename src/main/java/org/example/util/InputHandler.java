@@ -17,7 +17,6 @@ public class InputHandler {
         try {
             return sax.build(new StringReader(xmlStr));
         } catch (IOException | JDOMException e) {
-            System.out.println("a");
             throw new RuntimeException(e);
         }
     }

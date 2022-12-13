@@ -1,20 +1,15 @@
 package org.example.util;
 
+import org.example.resources.Strings;
 import org.example.src.Transaction;
 import org.jdom2.Document;
 import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
-
-import javax.xml.XMLConstants;
-import java.io.IOException;
-import java.io.StringReader;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 public class XMLParser {
     private static ArrayList<Transaction> transactions = new ArrayList<>();
-
     public XMLParser(ArrayList<Transaction> transactions) {
         XMLParser.transactions = transactions;
     }
@@ -29,10 +24,10 @@ public class XMLParser {
             if (el.getName().equals("transactions")) {
                 el.getChildren().forEach(e -> transactions.add(
                                 new Transaction(
-                                        e.getAttributeValue("id"),
-                                        e.getAttributeValue("type"),
-                                        e.getAttributeValue("amount"),
-                                        e.getAttributeValue("deposit"))
+                                        e.getAttributeValue(Strings.ID),
+                                        e.getAttributeValue(Strings.TYPE),
+                                        new BigInteger(e.getAttributeValue(Strings.AMOUNT)),
+                                        e.getAttributeValue(Strings.DEPOSIT))
                         )
                 );
             }

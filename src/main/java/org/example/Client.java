@@ -17,7 +17,6 @@ public class Client {
             }
 
 
-
             PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
             writer.println(stringBuilder.toString());
             // todo: log events in term21375.log
@@ -27,9 +26,12 @@ public class Client {
             BufferedReader responseReader = new BufferedReader(new InputStreamReader(inputStream));
             String response = responseReader.readLine();
 
-            // todo: save response as a file -> response.xml
-            // File file = new File("response.xml");
-            // boolean fileCreated = file.createNewFile();
+            File file = new File("response.xml");
+            try(BufferedWriter bw = new BufferedWriter(new FileWriter(file,true))) {
+//                bw.write();
+            } catch (IOException e) {
+                System.out.println(e);
+            }
 
 
             socket.close();

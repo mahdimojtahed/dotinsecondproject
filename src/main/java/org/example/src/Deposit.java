@@ -1,11 +1,13 @@
 package org.example.src;
 
+import java.math.BigInteger;
+
 public class Deposit {
     private String customer;
     private String id;
-    private String initialBalance;
-    private String upperBound;
-    public Deposit(String customer, String id, String initialBalance, String upperBound) {
+    private BigInteger initialBalance;
+    private BigInteger upperBound;
+    public Deposit(String customer, String id, BigInteger initialBalance, BigInteger upperBound) {
         this.customer = customer;
         this.id = id;
         this.initialBalance = initialBalance;
@@ -28,19 +30,19 @@ public class Deposit {
         this.id = id;
     }
 
-    public String getInitialBalance() {
+    public BigInteger getInitialBalance() {
         return initialBalance;
     }
 
-    public void setInitialBalance(String initialBalance) {
+    public void setInitialBalance(BigInteger initialBalance) {
         this.initialBalance = initialBalance;
     }
 
-    public String getUpperBound() {
+    public BigInteger getUpperBound() {
         return upperBound;
     }
 
-    public void setUpperBound(String upperBound) {
+    public void setUpperBound(BigInteger upperBound) {
         this.upperBound = upperBound;
     }
 

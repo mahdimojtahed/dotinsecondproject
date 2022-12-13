@@ -2,6 +2,7 @@ package org.example.util;
 
 import com.google.gson.Gson;
 import org.example.exeptionHandling.GenericExceptions;
+import org.example.resources.Strings;
 import org.example.server.config.Configuration;
 import org.example.src.Deposit;
 
@@ -42,7 +43,7 @@ public class JsonReader {
             }
             return deposits;
         } catch (FileNotFoundException e) {
-            throw new GenericExceptions("Config File not Found", e);
+            throw new GenericExceptions(Strings.SERVER_CONFIG_FILE, e);
         }
     }
 }
