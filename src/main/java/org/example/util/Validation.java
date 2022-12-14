@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Validation {
     static boolean isAlreadyDone = false;
     static boolean isValid = true;
-
     public static boolean validator(Transaction transaction, ArrayList<Deposit> deposits) {
         for (Deposit deposit : deposits) {
             if (transaction.getDeposit().equals(deposit.getId())) {
@@ -18,7 +17,7 @@ public class Validation {
                         isValid = false;
                     }
                 } else if (transaction.getType().equals(Strings.WITHDRAW)) {
-                    if (transaction.getAmount().compareTo(deposit.getInitialBalance()) < 0) {
+                    if (transaction.getAmount().compareTo(deposit.getInitialBalance()) > 0) {
                         isValid = false;
                     }
                 }

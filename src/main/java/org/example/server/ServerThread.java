@@ -32,10 +32,8 @@ public class ServerThread extends Thread {
             Document doc = InputHandler.convertStringToDocument(clientMessage);
             XMLParser.initTransactions(doc);
 
-
             transactions = XMLParser.getTransactions();
             deposits = JsonReader.getDeposits();
-
 
             File file = new File("src\\main\\log\\server.log");
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
@@ -44,23 +42,16 @@ public class ServerThread extends Thread {
                                 " Port:" + socket.getPort() +
                                 "-Ip:" + socket.getInetAddress() +
                                 "-Time:" + LocalTime.now());
-
                 bw.newLine();
             } catch (IOException e) {
                 System.out.println(Strings.RES_ERROR);
             }
 
 
-            System.out.println(transactions);
-            System.out.println("*********");
-
             for (Transaction transaction : transactions) {
                 if (Validation.validator(transaction, deposits)) {
                     Deposit deposit = Transact.transact(transaction, deposits);
-
-
-
-
+                    System.out.println(deposit);
                     Response.handleResponse(deposit);
                     writer.println(deposit);
                 }
