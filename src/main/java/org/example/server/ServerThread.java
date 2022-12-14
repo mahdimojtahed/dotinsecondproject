@@ -52,6 +52,8 @@ public class ServerThread extends Thread {
                 if (Validation.validator(transaction, deposits)) {
                     Deposit deposit = Transact.transact(transaction, deposits);
                     System.out.println(deposit);
+
+
                     Response.handleResponse(deposit);
                     writer.println(deposit);
                 }

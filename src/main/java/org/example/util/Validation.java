@@ -18,6 +18,7 @@ public class Validation {
                     }
                 } else if (transaction.getType().equals(Strings.WITHDRAW)) {
                     if (transaction.getAmount().compareTo(deposit.getInitialBalance()) > 0) {
+
                         isValid = false;
                     }
                 }
