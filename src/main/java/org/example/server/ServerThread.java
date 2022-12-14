@@ -1,6 +1,7 @@
 package org.example.server;
 
 import org.example.resources.Strings;
+import org.example.server.config.Configuration;
 import org.example.src.Deposit;
 import org.example.src.Transaction;
 import org.example.util.*;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class ServerThread extends Thread {
     static ArrayList<Deposit> deposits = new ArrayList<>();
     static ArrayList<Transaction> transactions = new ArrayList<>();
-    private Socket socket;
+    private final Socket socket;
 
     public ServerThread(Socket socket) {
         this.socket = socket;
@@ -35,7 +36,7 @@ public class ServerThread extends Thread {
             transactions = XMLParser.getTransactions();
             deposits = JsonReader.getDeposits();
 
-            File file = new File("src\\main\\log\\server.log");
+            File file = new File("src\\main\\log\\" + Configuration.getOutLog());
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
                 bw.write(
                         "client connected " +
@@ -52,7 +53,7 @@ public class ServerThread extends Thread {
                 if (Validation.validator(transaction, deposits)) {
                     Deposit deposit = Transact.transact(transaction, deposits);
                     System.out.println(deposit);
-                    Response.handleResponse(deposit);
+
                     writer.println(deposit);
                 }
             }

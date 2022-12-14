@@ -7,19 +7,24 @@ import org.example.src.Transaction;
 import java.util.ArrayList;
 
 public class Transact {
-
     synchronized public static Deposit transact(Transaction transaction, ArrayList<Deposit> deposits) {
-        for (Deposit deposit : deposits) {
-            if (transaction.getDeposit().equals(deposit.getId())) {
 
-                if (transaction.getType().equals(Strings.DEPOSIT)) {
+        if (transaction.getType().equals(Strings.DEPOSIT)) {
+            for (Deposit deposit : deposits) {
+                if (deposit.getId().equals(transaction.getDeposit())) {
                     deposit.setInitialBalance(deposit.getInitialBalance().add(transaction.getAmount()));
-                } else if (transaction.getType().equals(Strings.WITHDRAW)) {
-                    deposit.setInitialBalance(deposit.getInitialBalance().subtract(transaction.getAmount()));
+                    return deposit;
                 }
-
             }
-            return deposit;
+        }
+
+        if (transaction.getType().equals(Strings.WITHDRAW)) {
+            for (Deposit deposit : deposits) {
+                if (deposit.getId().equals(transaction.getDeposit())) {
+                    deposit.setInitialBalance(deposit.getInitialBalance().subtract(transaction.getAmount()));
+                    return deposit;
+                }
+            }
         }
         return null;
     }
