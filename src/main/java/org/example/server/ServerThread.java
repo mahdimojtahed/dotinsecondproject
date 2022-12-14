@@ -8,6 +8,7 @@ import org.jdom2.Document;
 
 import java.io.*;
 import java.net.Socket;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class ServerThread extends Thread {
@@ -36,9 +37,31 @@ public class ServerThread extends Thread {
             deposits = JsonReader.getDeposits();
 
 
+            File file = new File("src\\main\\log\\server.log");
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
+                bw.write(
+                        "client connected " +
+                                " Port:" + socket.getPort() +
+                                "-Ip:" + socket.getInetAddress() +
+                                "-Time:" + LocalTime.now());
+
+                bw.newLine();
+            } catch (IOException e) {
+                System.out.println(Strings.RES_ERROR);
+            }
+
+
+            System.out.println(transactions);
+            System.out.println("*********");
+
             for (Transaction transaction : transactions) {
                 if (Validation.validator(transaction, deposits)) {
                     Deposit deposit = Transact.transact(transaction, deposits);
+
+
+
+
+                    Response.handleResponse(deposit);
                     writer.println(deposit);
                 }
             }

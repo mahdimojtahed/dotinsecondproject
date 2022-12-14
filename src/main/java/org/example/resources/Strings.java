@@ -10,5 +10,4 @@ public class Strings {
     public static final String DEPOSIT = "deposit";
     public static final String WITHDRAW = "withdraw";
     public static final String RES_ERROR  = "Unable To Create Response file";
-
 }

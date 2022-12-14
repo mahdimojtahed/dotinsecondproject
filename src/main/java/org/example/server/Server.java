@@ -22,10 +22,11 @@ public class Server {
             System.out.println(e.getMessage());
         }
 
+
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         try (ServerSocket serverSocket = new ServerSocket(serverPort)) {
             System.out.println(Strings.SERVER_LISTEN + serverPort);
-            // todo : log events in server.log
+
             while (true) {
                 Socket socket = serverSocket.accept();
                 executorService.execute(new ServerThread(socket));
@@ -35,5 +36,6 @@ public class Server {
         } catch (Exception e) {
             System.out.println(e);
         }
+
     }
 }
