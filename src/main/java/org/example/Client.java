@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.resources.Strings;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -16,24 +18,24 @@ public class Client {
                 stringBuilder.append(line);
             }
 
-
             PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
             writer.println(stringBuilder.toString());
-            // todo: log events in term21375.log
-
 
             InputStream inputStream = socket.getInputStream();
             BufferedReader responseReader = new BufferedReader(new InputStreamReader(inputStream));
             String response = responseReader.readLine();
 
+
+            // todo : write response to resposne.xml file
             File file = new File("response.xml");
-            try(BufferedWriter bw = new BufferedWriter(new FileWriter(file,true))) {
-//                bw.write();
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
+                bw.write(response);
             } catch (IOException e) {
-                System.out.println(e);
+                System.out.println(Strings.RES_ERROR);
             }
 
 
+            // todo: log events in term21375.log
             socket.close();
             System.out.println(response);
         } catch (IOException e) {
