@@ -64,7 +64,7 @@ public class Client {
                 System.out.println(Strings.RES_ERROR);
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println(Strings.SERVER_DOWN);
         }
     }
     public static void main(String[] args) {

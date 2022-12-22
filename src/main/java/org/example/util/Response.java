@@ -6,6 +6,8 @@ public class Response {
 
     public static void handleResponse(Deposit deposit) {
 
+        System.out.println(deposit);
 
     }
+
 }

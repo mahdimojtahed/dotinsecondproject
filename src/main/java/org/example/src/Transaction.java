@@ -7,12 +7,14 @@ public class Transaction {
     private String type;
     private BigInteger amount;
     private String deposit;
+    private boolean isDone;
 
-    public Transaction(String id, String type, BigInteger amount, String deposit) {
+    public Transaction(String id, String type, BigInteger amount, String deposit, boolean isDone) {
         this.id = id;
         this.type = type;
         this.amount = amount;
         this.deposit = deposit;
+        this.isDone = isDone;
     }
 
     public String getId() {
@@ -40,13 +42,22 @@ public class Transaction {
         this.deposit = deposit;
     }
 
+    public boolean isDone() {
+        return isDone;
+    }
+
+    public void setDone(boolean done) {
+        isDone = done;
+    }
+
     @Override
     public String toString() {
         return "Transaction{" +
                 "id='" + id + '\'' +
                 ", type='" + type + '\'' +
-                ", amount='" + amount + '\'' +
+                ", amount=" + amount +
                 ", deposit='" + deposit + '\'' +
+                ", isDone=" + isDone +
                 '}';
     }
 }

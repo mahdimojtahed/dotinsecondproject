@@ -11,4 +11,5 @@ public class Strings {
     public static final String WITHDRAW = "withdraw";
     public static final String RES_ERROR  = "Unable To Create Response file";
     public static final String DONE = "All Transactions for this terminal already done !";
+    public static final String SERVER_DOWN = "Server Is Currently Down , Please Try again Later !";
 }

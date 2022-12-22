@@ -4,36 +4,34 @@ import org.example.resources.Strings;
 import org.example.src.Deposit;
 import org.example.src.Transaction;
 
-import java.util.ArrayList;
+import java.math.BigInteger;
+import java.util.List;
 
 public class Validation {
-    static boolean isAlreadyDone = false;
-    static boolean isValid = true;
-    public static boolean validator(Transaction transaction, ArrayList<Deposit> deposits) {
-        for (Deposit deposit : deposits) {
-            if (transaction.getDeposit().equals(deposit.getId())) {
-                if (transaction.getType().equals(Strings.DEPOSIT)) {
-                    if ((transaction.getAmount()).add(deposit.getInitialBalance()).compareTo(deposit.getUpperBound()) > 0) {
-                        isValid = false;
-                    }
-                } else if (transaction.getType().equals(Strings.WITHDRAW)) {
-                    if (transaction.getAmount().compareTo(deposit.getInitialBalance()) > 0) {
+    static List<Deposit> deposits = JsonReader.getDeposits();
+    static boolean isValid;
+    public static boolean validator(Transaction transaction) {
 
-                        isValid = false;
-                    }
+        for (Deposit deposit : deposits) {
+            isValid = true;
+            if (transaction.getDeposit().equals(deposit.getId())) {
+                switch (transaction.getType()) {
+                    case Strings.DEPOSIT:
+                        if (transaction.getAmount().add(deposit.getInitialBalance()).compareTo(deposit.getUpperBound()) > 0) {
+                            isValid = false;
+                        }
+                        break;
+                    case Strings.WITHDRAW:
+                        if(transaction.getAmount().subtract(deposit.getInitialBalance()).compareTo(BigInteger.valueOf(0)) < 0 ) {
+                            isValid = false;
+                        }
+                        break;
                 }
+
             }
         }
         return isValid;
     }
 
-    static boolean checkDone(String id, ArrayList<Transaction> transactions) {
-        for (Transaction transaction : transactions) {
-            if (transaction.getId().equals(id)) {
-                isAlreadyDone = true;
-                break;
-            }
-        }
-        return isAlreadyDone;
-    }
+
 }
