@@ -15,11 +15,9 @@ public class Transact {
             case Strings.DEPOSIT:
                 for (Deposit deposit : deposits) {
                     if (deposit.getId().equals(transaction.getDeposit()) &&
-                            !transaction.isDone() &&
                             Validation.validator(transaction)) {
 
                         deposit.setInitialBalance(deposit.getInitialBalance().add(transaction.getAmount()));
-                        transaction.setDone(true);
                         return deposit;
                     }
                 }
@@ -28,11 +26,8 @@ public class Transact {
             case Strings.WITHDRAW:
                 for (Deposit deposit : deposits) {
                     if (deposit.getId().equals(transaction.getDeposit()) &&
-                            !transaction.isDone() &&
                             Validation.validator(transaction)) {
-
                         deposit.setInitialBalance(deposit.getInitialBalance().subtract(transaction.getAmount()));
-                        transaction.setDone(true);
                         return deposit;
                     }
                 }

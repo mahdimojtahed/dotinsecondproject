@@ -19,14 +19,14 @@ public class ServerLogger {
         try (
                 BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
             bw.write(
-                    "client connected " +
-                            "-Port:" + socket.getPort() +
-                            "-Ip:" + socket.getInetAddress() +
-                            "-Customer:" + deposit.getCustomer() +
-                            "-Transaction-Amount:" + transaction.getAmount() +
-                            "-Transaction-Type:" + transaction.getType() +
-                            "-New Balance:" + deposit.getInitialBalance() +
-                            "-Time:" + LocalTime.now()
+                    Strings.CLIENT_CONNECTED +
+                            Strings.CONNECTION_PORT + socket.getPort() +
+                            Strings.CLIENT_IP + socket.getInetAddress() +
+                            Strings.CLIENT_CUSTOMER + deposit.getCustomer() +
+                            Strings.TRANSACTION_AMOUNT + transaction.getAmount() +
+                            Strings.TRANSACTION_TYPE + transaction.getType() +
+                            Strings.NEW_BALANCE + deposit.getInitialBalance() +
+                            Strings.TIME + LocalTime.now()
             );
             bw.newLine();
         } catch (IOException e) {

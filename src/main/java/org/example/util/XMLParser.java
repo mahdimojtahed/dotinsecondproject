@@ -27,7 +27,7 @@ public class XMLParser {
         List<Element> list = rootNode.getChildren();
 
         for (Element el : list) {
-            if (el.getName().equals("transactions")) {
+            if (el.getName().equals(Strings.TRANSACTIONS)) {
                 el.getChildren().forEach(e -> {
                             Transaction transaction = new Transaction(
                                     e.getAttributeValue(Strings.ID),

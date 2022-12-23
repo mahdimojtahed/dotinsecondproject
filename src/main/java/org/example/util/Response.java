@@ -1,5 +1,6 @@
 package org.example.util;
 
+import org.example.resources.Strings;
 import org.example.src.Deposit;
 import org.example.src.Transaction;
 
@@ -17,12 +18,12 @@ public class Response {
             OutputStream output = socket.getOutputStream();
             PrintWriter writer = new PrintWriter(output, true);
             writer.println(
-                    "Connection To Server Established : " +
-                            "-Customer:" + deposit.getCustomer() +
-                            "-Transaction-Amount:" + transaction.getAmount() +
-                            "-Transaction-Type:" + transaction.getType() +
-                            "-New Balance:" + deposit.getInitialBalance() +
-                            "-Time:" + LocalTime.now()
+                    Strings.CONNECTION_ESTABLISHED +
+                            Strings.CUSTOMER + deposit.getCustomer() +
+                            Strings.TRANSACTION_AMOUNT + transaction.getAmount() +
+                            Strings.TRANSACTION_TYPE + transaction.getType() +
+                            Strings.NEW_BALANCE + deposit.getInitialBalance() +
+                            Strings.TIME + LocalTime.now()
             );
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -30,11 +30,11 @@ public class Client {
             List<Element> list = rootNode.getChildren();
 
             for (Element el : list) {
-                if (el.getName().equals("server")) {
-                    port = Integer.parseInt(el.getAttributeValue("port"));
-                    ip = el.getAttributeValue("ip");
-                } else if (el.getName().equals("outLog")) {
-                    path = el.getAttributeValue("path");
+                if (el.getName().equals(Strings.ATTR_STR_SERVER)) {
+                    port = Integer.parseInt(el.getAttributeValue(Strings.ATTR_STR_PORT));
+                    ip = el.getAttributeValue(Strings.ATTR_STR_IP);
+                } else if (el.getName().equals(Strings.ATTR_STR_OUTLOG)) {
+                    path = el.getAttributeValue(Strings.ATTR_STR_PATH);
                 }
             }
 
