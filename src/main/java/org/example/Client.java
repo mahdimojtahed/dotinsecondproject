@@ -53,6 +53,7 @@ public class Client {
 
             File file = new File("src//main//log//" + path);
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
+
                 if (response != null) {
                     bw.write(response);
                     bw.newLine();
@@ -60,6 +61,8 @@ public class Client {
                 } else {
                     System.out.println(Strings.DONE);
                 }
+
+
             } catch (IOException e) {
                 System.out.println(Strings.RES_ERROR);
             }
@@ -67,6 +70,7 @@ public class Client {
             System.out.println(Strings.SERVER_DOWN);
         }
     }
+
     public static void main(String[] args) {
         Client.connectToServer();
     }

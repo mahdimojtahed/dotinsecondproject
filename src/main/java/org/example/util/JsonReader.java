@@ -24,7 +24,7 @@ public class JsonReader {
         return deposits;
     }
 
-    static public ArrayList<Deposit> readJSON(String jsonPath) throws GenericExceptions {
+    static public void readJSON(String jsonPath) throws GenericExceptions {
         JsonContent jsonContent;
 
         try {
@@ -41,7 +41,7 @@ public class JsonReader {
                         )
                 );
             }
-            return deposits;
+
         } catch (FileNotFoundException e) {
             throw new GenericExceptions(Strings.SERVER_CONFIG_FILE, e);
         }

@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Transact {
     static List<Deposit> deposits = JsonReader.getDeposits();
+
     synchronized public static Deposit transact(Transaction transaction) {
 
         switch (transaction.getType()) {

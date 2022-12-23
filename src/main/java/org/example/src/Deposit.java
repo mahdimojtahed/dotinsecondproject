@@ -3,10 +3,11 @@ package org.example.src;
 import java.math.BigInteger;
 
 public class Deposit {
-    private String customer;
-    private String id;
+    private final String customer;
+    private final String id;
     private BigInteger initialBalance;
-    private BigInteger upperBound;
+    private final BigInteger upperBound;
+
     public Deposit(String customer, String id, BigInteger initialBalance, BigInteger upperBound) {
         this.customer = customer;
         this.id = id;
@@ -18,16 +19,8 @@ public class Deposit {
         return customer;
     }
 
-    public void setCustomer(String customer) {
-        this.customer = customer;
-    }
-
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public BigInteger getInitialBalance() {
@@ -40,10 +33,6 @@ public class Deposit {
 
     public BigInteger getUpperBound() {
         return upperBound;
-    }
-
-    public void setUpperBound(BigInteger upperBound) {
-        this.upperBound = upperBound;
     }
 
     @Override

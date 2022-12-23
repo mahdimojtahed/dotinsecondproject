@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class XMLParser {
-    private static ArrayList<Transaction> transactions = new ArrayList<>();
+    private static ArrayList<Transaction> transactions;
 
     public XMLParser(ArrayList<Transaction> transactions) {
         XMLParser.transactions = transactions;
@@ -21,6 +21,8 @@ public class XMLParser {
     }
 
     public static void initTransactions(Document doc) {
+
+        transactions = new ArrayList<>();
         Element rootNode = doc.getRootElement();
         List<Element> list = rootNode.getChildren();
 
@@ -31,8 +33,7 @@ public class XMLParser {
                                     e.getAttributeValue(Strings.ID),
                                     e.getAttributeValue(Strings.TYPE),
                                     new BigInteger(e.getAttributeValue(Strings.AMOUNT)),
-                                    e.getAttributeValue(Strings.DEPOSIT),
-                                    false
+                                    e.getAttributeValue(Strings.DEPOSIT)
                             );
                             transactions.add(transaction);
                         }

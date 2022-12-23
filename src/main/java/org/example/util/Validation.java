@@ -10,6 +10,7 @@ import java.util.List;
 public class Validation {
     static List<Deposit> deposits = JsonReader.getDeposits();
     static boolean isValid;
+
     public static boolean validator(Transaction transaction) {
 
         for (Deposit deposit : deposits) {
@@ -22,7 +23,7 @@ public class Validation {
                         }
                         break;
                     case Strings.WITHDRAW:
-                        if(transaction.getAmount().subtract(deposit.getInitialBalance()).compareTo(BigInteger.valueOf(0)) < 0 ) {
+                        if (transaction.getAmount().subtract(deposit.getInitialBalance()).compareTo(BigInteger.valueOf(0)) < 0) {
                             isValid = false;
                         }
                         break;

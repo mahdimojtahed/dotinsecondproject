@@ -11,6 +11,7 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@SuppressWarnings("InfiniteLoopStatement")
 public class Server {
     public static void main(String[] args) {
         int serverPort = 0;
@@ -22,19 +23,15 @@ public class Server {
             System.out.println(e.getMessage());
         }
 
-
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         try (ServerSocket serverSocket = new ServerSocket(serverPort)) {
             System.out.println(Strings.SERVER_LISTEN + serverPort);
-
             while (true) {
                 Socket socket = serverSocket.accept();
                 executorService.execute(new ServerThread(socket));
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } catch (Exception e) {
-            System.out.println(e);
         }
 
     }
