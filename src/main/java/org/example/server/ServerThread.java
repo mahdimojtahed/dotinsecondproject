@@ -9,9 +9,7 @@ import org.example.util.Transact;
 import org.example.util.XMLParser;
 import org.jdom2.Document;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 
@@ -26,7 +24,6 @@ public class ServerThread extends Thread {
     @Override
     public void run() {
         try {
-            // todo : delete souts
             System.out.println(Strings.NEW_CLIENT + " " + Thread.currentThread().getName());
             BufferedReader clientReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String clientMessage = clientReader.readLine();
@@ -34,14 +31,22 @@ public class ServerThread extends Thread {
             XMLParser.initTransactions(doc);
 
             transactions = XMLParser.getTransactions();
+            StringBuilder str = new StringBuilder();
+
             for (Transaction transaction : transactions) {
                 Deposit deposit = Transact.transact(transaction);
                 if (deposit != null) {
                     ServerLogger.logger(socket, deposit, transaction);
-                    Response.handleResponse(socket, deposit, transaction);
+                    Response.handleResponse(str, deposit, transaction);
                     System.out.println(deposit);
                 }
             }
+
+            OutputStream output = socket.getOutputStream();
+            PrintWriter writer = new PrintWriter(output, true);
+            writer.println(str);
+
+
 
             socket.close();
         } catch (IOException e) {

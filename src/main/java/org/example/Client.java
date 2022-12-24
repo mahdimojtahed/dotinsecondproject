@@ -47,17 +47,20 @@ public class Client {
             PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
             writer.println(stringBuilder);
 
+
+
             InputStream inputStream = socket.getInputStream();
             BufferedReader responseReader = new BufferedReader(new InputStreamReader(inputStream));
-            String response = responseReader.readLine();
+            String response = responseReader.readLine().replace("BREAK","\n");
+            System.out.println(response);
+
 
             File file = new File("src//main//log//" + path);
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
 
+                //noinspection ConstantConditions
                 if (response != null) {
                     bw.write(response);
-                    bw.newLine();
-                    System.out.println(response);
                 } else {
                     System.out.println(Strings.DONE);
                 }
