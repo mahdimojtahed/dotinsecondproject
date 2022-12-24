@@ -23,7 +23,7 @@ public class Validation {
                         }
                         break;
                     case Strings.WITHDRAW:
-                        if (transaction.getAmount().subtract(deposit.getInitialBalance()).compareTo(BigInteger.valueOf(0)) < 0) {
+                        if (transaction.getAmount().subtract(deposit.getInitialBalance()).compareTo(BigInteger.valueOf(0)) > 0) {
                             isValid = false;
                         }
                         break;

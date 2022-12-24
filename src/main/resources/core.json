@@ -10,8 +10,8 @@
     {
       "customer": "Reza Rezaei",
       "id": "35527439",
-      "initialBalance": "25000",
-      "upperBound": "0"
+      "initialBalance": "2500000000",
+      "upperBound": "5454545454521"
     }
   ],
   "outLog": "server.out"

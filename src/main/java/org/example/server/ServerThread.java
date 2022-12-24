@@ -39,6 +39,7 @@ public class ServerThread extends Thread {
                 if (deposit != null) {
                     ServerLogger.logger(socket, deposit, transaction);
                     Response.handleResponse(socket, deposit, transaction);
+                    System.out.println(deposit);
                 }
             }
 
