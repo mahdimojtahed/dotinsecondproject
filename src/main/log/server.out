@@ -4,3 +4,14 @@ New Client Connected -  Port: 64499 IP/127.0.0.1Customer: Ali Alavi Transaction-
 New Client Connected -  Port: 64505 IP/127.0.0.1Customer: Ali Alavi Transaction-Amount: 3000 Transaction-Type: deposit New-Balance: 7000 TIME: 17:55:49.527
 New Client Connected - Port: 64516 IP/127.0.0.1Customer: Ali Alavi Transaction-Amount: 3000 Transaction-Type: deposit New-Balance: 4000 TIME: 17:56:06.797
 New Client Connected - Port: 64527 IP /127.0.0.1 Customer: Ali Alavi Transaction-Amount: 3000 Transaction-Type: deposit New-Balance: 4000 TIME: 17:56:42.048
+New Client Connected - Port: 64615 IP /127.0.0.1 Customer: Ali Alavi Transaction-Amount: 3000 Transaction-Type: deposit New-Balance: 4000 TIME: 18:01:45.696
+New Client Connected - Port: 64615 IP /127.0.0.1 Customer: Reza Rezaei Transaction-Amount: 10000 Transaction-Type: withdraw New-Balance: 10990000 TIME: 18:01:45.698
+New Client Connected - Port: 64897 IP /127.0.0.1 Customer: Ali Alavi Transaction-Amount: 3000 Transaction-Type: deposit New-Balance: 4000 TIME: 23:20:43.775
+New Client Connected - Port: 64897 IP /127.0.0.1 Customer: Reza Rezaei Transaction-Amount: 10000 Transaction-Type: withdraw New-Balance: 10990000 TIME: 23:20:43.796
+New Client Connected - Port: 64897 IP /127.0.0.1 Customer: Reza Rezaei Transaction-Amount: 10000 Transaction-Type: deposit New-Balance: 11000000 TIME: 23:20:43.796
+New Client Connected - Port: 64910 IP /127.0.0.1 Customer: Ali Alavi Transaction-Amount: 3000 Transaction-Type: deposit New-Balance: 4000 TIME: 23:22:36.765
+New Client Connected - Port: 64910 IP /127.0.0.1 Customer: Reza Rezaei Transaction-Amount: 1000 Transaction-Type: withdraw New-Balance: 0 TIME: 23:22:36.767
+New Client Connected - Port: 64910 IP /127.0.0.1 Customer: Reza Rezaei Transaction-Amount: 1000 Transaction-Type: deposit New-Balance: 1000 TIME: 23:22:36.768
+New Client Connected - Port: 64924 IP /127.0.0.1 Customer: Ali Alavi Transaction-Amount: 3000 Transaction-Type: deposit New-Balance: 4000 TIME: 23:26:48.098
+New Client Connected - Port: 64924 IP /127.0.0.1 Customer: Reza Rezaei Transaction-Amount: 1000 Transaction-Type: withdraw New-Balance: 0 TIME: 23:26:48.100
+New Client Connected - Port: 64924 IP /127.0.0.1 Customer: Reza Rezaei Transaction-Amount: 1000 Transaction-Type: deposit New-Balance: 1000 TIME: 23:26:48.101
