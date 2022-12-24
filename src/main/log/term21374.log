@@ -1,0 +1,6 @@
+Connection To Server Established - Customer: Ali Alavi Transaction-Type: deposit Old-Balance: 4000 Transaction-Amount: 3000 New-Balance: 7000 TIME: 17:53:17.017
+Connection To Server Established - Customer: Reza Rezaei Transaction-Type: withdraw Old-Balance: 2499970000 Transaction-Amount: 10000 New-Balance: 2499980000 TIME: 17:53:17.017
+Connection To Server Established - Customer: Ali Alavi Old-Balance: 1000 Transaction-Type: deposit Transaction-Amount: 3000 New-Balance: 4000 TIME: 17:55:35.276
+Connection To Server Established - Customer: Ali Alavi Old-Balance: 4000 Transaction-Type: deposit Transaction-Amount: 3000 New-Balance: 7000 TIME: 17:55:49.527
+Connection To Server Established - Customer: Ali Alavi Old-Balance: 1000 Transaction-Type: deposit Transaction-Amount: 3000 New-Balance: 4000 TIME: 17:56:06.799
+Connection To Server Established - Customer: Ali Alavi Old-Balance: 1000 Transaction-Type: deposit Transaction-Amount: 3000 New-Balance: 4000 TIME: 17:56:42.050
